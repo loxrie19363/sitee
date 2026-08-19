@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VBOOST | LoxrieResmi</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f6f8;
+    color:#18191d;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:68px;
+    background:#fff;
+    border-bottom:1px solid #e5e6e9;
+    display:flex;
+    align-items:center;
+    padding:0 6%;
+    gap:35px;
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    color:#ff4655;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    flex:1;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#555;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.nav-links a:hover{
+    color:#ff4655;
+}
+
+.profile{
+    border:1px solid #ddd;
+    padding:9px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.menu{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* SCREENS */
+
+.screen{
+    display:none;
+}
+
+.screen.active{
+    display:block;
+}
+
+/* HERO */
+
+.hero{
+    background:#101116;
+    color:white;
+    padding:70px 20px;
+}
+
+.hero-inner{
+    max-width:1100px;
+    margin:auto;
+}
+
+.hero h1{
+    font-size:45px;
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    color:#ff4655;
+}
+
+.hero p{
+    color:#aaa;
+    margin-bottom:25px;
+}
+
+/* CONTENT */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.section-title{
+    margin-bottom:25px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e2e3e7;
+    border-radius:12px;
+    padding:24px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px #00000012;
+}
+
+.rank{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.card p{
+    color:#777;
+    margin-top:8px;
+}
+
+.price{
+    color:#ff4655;
+    font-size:27px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.btn{
+    border:0;
+    border-radius:7px;
+    padding:13px 20px;
+    background:#ff4655;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn:hover{
+    filter:brightness(1.08);
+}
+
+/* ACCOUNT */
+
+.form-box{
+    max-width:500px;
+    margin:50px auto;
+    background:white;
+    border:1px solid #e2e3e7;
+    border-radius:13px;
+    padding:30px;
+}
+
+.form-box h2{
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #d8d9dd;
+    border-radius:7px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#ff4655;
+}
+
+.error{
+    color:#e5394b;
+    margin-bottom:15px;
+}
+
+/* ORDER */
+
+.summary{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    border:1px solid #e2e3e7;
+    border-radius:13px;
+    padding:30px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+}
+
+.row:last-child{
+    border:0;
+}
+
+.total{
+    color:#ff4655;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* CHAT */
+
+.chat-box{
+    max-width:600px;
+    height:600px;
+    margin:40px auto;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:14px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+.chat-head{
+    padding:17px;
+    background:#17181d;
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#ff4655;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.online{
+    color:#67dc83;
+    font-size:11px;
+}
+
+.chat-body{
+    flex:1;
+    padding:18px;
+    overflow-y:auto;
+}
+
+.message{
+    max-width:75%;
+    background:#eef0f3;
+    padding:11px 14px;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.message.me{
+    margin-left:auto;
+    background:#ff4655;
+    color:white;
+}
+
+.chat-input{
+    padding:10px;
+    border-top:1px solid #ddd;
+    display:flex;
+    gap:8px;
+}
+
+.chat-input input{
+    margin:0;
+}
+
+.chat-input button{
+    width:60px;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+    display:none;
+    position:fixed;
+    top:68px;
+    left:0;
+    right:0;
+    background:white;
+    border-bottom:1px solid #ddd;
+    padding:20px;
+    z-index:49;
+}
+
+.mobile-menu a{
+    display:block;
+    padding:15px 5px;
+    color:#444;
+    text-decoration:none;
+    border-bottom:1px solid #eee;
+}
+
+@media(max-width:700px){
+
+    .nav-links,
+    .profile{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+        margin-left:auto;
+    }
+
+    .navbar{
+        padding:0 18px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .container{
+        padding:30px 15px;
+    }
+
+    .chat-box{
+        margin:20px 10px;
+        height:calc(100vh - 110px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<div class="logo">
+VBOOST
+</div>
+
+<nav class="nav-links">
+
+<a onclick="goHome()">Ana Sayfa</a>
+
+<a onclick="goPackages()">Paketler</a>
+
+<a onclick="showOrders()">Siparişlerim</a>
+
+<a onclick="openSupport()">Destek</a>
+
+</nav>
+
+<div class="profile"
+     id="profile"
+     onclick="showAccount()">
+Giriş Yap
+</div>
+
+<div class="menu"
+     onclick="toggleMenu()">
+☰
+</div>
+
+</header>
+
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu"
+     id="mobileMenu">
+
+<a onclick="goHome();toggleMenu()">
+Ana Sayfa
+</a>
+
+<a onclick="goPackages();toggleMenu()">
+Paketler
+</a>
+
+<a onclick="showOrders();toggleMenu()">
+Siparişlerim
+</a>
+
+<a onclick="openSupport();toggleMenu()">
+Destek
+</a>
+
+<a onclick="showAccount();toggleMenu()">
+Hesabım
+</a>
+
+</div>
+
+
+<!-- HOME -->
+
+<section id="home"
+         class="screen active">
+
+<div class="hero">
+
+<div class="hero-inner">
+
+<h1>
+RANKINI
+<span>YÜKSELT</span>
+</h1>
+
+<p>
+VBOOST — Valorant hizmet ve iletişim platformu
+</p>
+
+<button class="btn"
+        onclick="goPackages()">
+PAKETLERE GÖZ AT
+</button>
+
+</div>
+
+</div>
+
+<div class="container">
+
+<h2 class="section-title">
+Popüler Paketler
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="rank">
+Bronz → Gümüş
+</div>
+
+<p>Rank paketi</p>
+
+<div class="price">
+₺149
+</div>
+
+<button class="btn"
+onclick="selectPackage('Bronz → Gümüş',149)">
+Satın Al
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="rank">
+Gümüş → Altın
+</div>
+
+<p>Rank paketi</p>
+
+<div class="price">
+₺249
+</div>
+
+<button class="btn"
+onclick="selectPackage('Gümüş → Altın',249)">
+Satın Al
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="rank">
+Altın → Platin
+</div>
+
+<p>Rank paketi</p>
+
+<div class="price">
+₺349
+</div>
+
+<button class="btn"
+onclick="selectPackage('Altın → Platin',349)">
+Satın Al
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ACCOUNT -->
+
+<section id="account"
+         class="screen">
+
+<div class="form-box">
+
+<h2>
+Hesap Oluştur
+</h2>
+
+<div class="error"
+     id="error">
+</div>
+
+<input id="email"
+       type="email"
+       placeholder="E-posta">
+
+<input id="username"
+       placeholder="Kullanıcı adı">
+
+<input id="password"
+       type="password"
+       placeholder="Site şifresi">
+
+<button class="btn"
+        onclick="createAccount()">
+HESAP OLUŞTUR
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PACKAGES -->
+
+<section id="packages"
+         class="screen">
+
+<div class="container">
+
+<h2 class="section-title">
+Tüm Paketler
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="rank">Bronz → Gümüş</div>
+<p>Başlangıç</p>
+<div class="price">₺149</div>
+<button class="btn"
+onclick="selectPackage('Bronz → Gümüş',149)">
+Satın Al
+</button>
+</div>
+
+<div class="card">
+<div class="rank">Gümüş → Altın</div>
+<p>Standart</p>
+<div class="price">₺249</div>
+<button class="btn"
+onclick="selectPackage('Gümüş → Altın',249)">
+Satın Al
+</button>
+</div>
+
+<div class="card">
+<div class="rank">Altın → Platin</div>
+<p>Premium</p>
+<div class="price">₺349</div>
+<button class="btn"
+onclick="selectPackage('Altın → Platin',349)">
+Satın Al
+</button>
+</div>
+
+<div class="card">
+<div class="rank">Platin → Elmas</div>
+<p>Premium+</p>
+<div class="price">₺499</div>
+<button class="btn"
+onclick="selectPackage('Platin → Elmas',499)">
+Satın Al
+</button>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ORDER -->
+
+<section id="order"
+         class="screen">
+
+<div class="container">
+
+<h2 class="section-title">
+Sipariş Özeti
+</h2>
+
+<div class="summary">
+
+<div class="row">
+<span>Kullanıcı</span>
+<b id="sumUser">-</b>
+</div>
+
+<div class="row">
+<span>Paket</span>
+<b id="sumPackage">-</b>
+</div>
+
+<div class="row">
+<span>Fiyat</span>
+<b class="total"
+   id="sumPrice">₺0</b>
+</div>
+
+<br>
+
+<button class="btn"
+        onclick="openSupport()">
+SATIN AL / DESTEKLE İLETİŞİME GEÇ
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ORDERS -->
+
+<section id="orders"
+         class="screen">
+
+<div class="container">
+
+<h2 class="section-title">
+Siparişlerim
+</h2>
+
+<div class="summary"
+     id="orderList">
+
+Henüz sipariş bulunmuyor.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUPPORT -->
+
+<section id="support"
+         class="screen">
+
+<div class="chat-box">
+
+<div class="chat-head">
+
+<div class="avatar">
+L
+</div>
+
+<div>
+<b>LoxrieResmi</b>
+
+<div class="online">
+● Çevrimiçi
+</div>
+
+</div>
+
+</div>
+
+<div class="chat-body"
+     id="chatBody">
+
+<div class="message">
+
+Merhaba 👋<br><br>
+
+Ben <b>LoxrieResmi</b>.
+<br><br>
+
+Nasıl yardımcı olabilirim?
+
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input id="chatInput"
+placeholder="Mesaj yaz..."
+onkeydown="if(event.key==='Enter')sendMessage()">
+
+<button class="btn"
+onclick="sendMessage()">
+➤
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+let user={
+    username:"",
+    email:""
+};
+
+let selected={
+    name:"",
+    price:0
+};
+
+let orders=[];
+
+
+function hideAll(){
+
+    document.querySelectorAll(".screen")
+    .forEach(x=>{
+        x.classList.remove("active");
+    });
+
+}
+
+
+function show(id){
+
+    hideAll();
+
+    document.getElementById(id)
+    .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+
+function goHome(){
+    show("home");
+}
+
+
+function goPackages(){
+
+    if(!user.username){
+
+        showAccount();
+
+        return;
+    }
+
+    show("packages");
+}
+
+
+function showAccount(){
+
+    show("account");
+}
+
+
+function createAccount(){
+
+    const email=
+        document.getElementById("email")
+        .value.trim();
+
+    const username=
+        document.getElementById("username")
+        .value.trim();
+
+    const password=
+        document.getElementById("password")
+        .value;
+
+    const error=
+        document.getElementById("error");
+
+
+    if(!email||!username||!password){
+
+        error.innerText=
+        "Tüm alanları doldur.";
+
+        return;
+    }
+
+
+    if(!email.includes("@")){
+
+        error.innerText=
+        "Geçerli bir e-posta gir.";
+
+        return;
+    }
+
+
+    if(password.length<6){
+
+        error.innerText=
+        "Şifre en az 6 karakter olmalı.";
+
+        return;
+    }
+
+
+    user.email=email;
+    user.username=username;
+
+    document.getElementById("profile")
+    .innerText=username;
+
+    error.innerText="";
+
+    goPackages();
+}
+
+
+function selectPackage(name,price){
+
+    if(!user.username){
+
+        showAccount();
+
+        return;
+    }
+
+
+    selected.name=name;
+    selected.price=price;
+
+
+    document.getElementById("sumUser")
+    .innerText=user.username;
+
+    document.getElementById("sumPackage")
+    .innerText=name;
+
+    document.getElementById("sumPrice")
+    .innerText="₺"+price;
+
+
+    orders.push({
+        name:name,
+        price:price
+    });
+
+
+    show("order");
+}
+
+
+function showOrders(){
+
+    if(!user.username){
+
+        showAccount();
+
+        return;
+    }
+
+
+    const list=
+        document.getElementById("orderList");
+
+
+    if(orders.length===0){
+
+        list.innerText=
+        "Henüz sipariş bulunmuyor.";
+
+    }else{
+
+        list.innerHTML=
+        orders.map((o,i)=>`
+
+        <div class="row">
+
+        <span>
+        Sipariş #${i+1}<br>
+        ${o.name}
+        </span>
+
+        <b class="total">
+        ₺${o.price}
+        </b>
+
+        </div>
+
+        `).join("");
+    }
+
+
+    show("orders");
+}
+
+
+function openSupport(){
+
+    if(!user.username){
+
+        showAccount();
+
+        return;
+    }
+
+    show("support");
+}
+
+
+function sendMessage(){
+
+    const input=
+        document.getElementById("chatInput");
+
+    const text=
+        input.value.trim();
+
+
+    if(!text)return;
+
+
+    const body=
+        document.getElementById("chatBody");
+
+
+    const msg=
+        document.createElement("div");
+
+    msg.className="message me";
+
+    msg.innerText=text;
+
+    body.appendChild(msg);
+
+    input.value="";
+
+    body.scrollTop=
+        body.scrollHeight;
+
+
+    setTimeout(()=>{
+
+        const reply=
+            document.createElement("div");
+
+        reply.className="message";
+
+        reply.innerText=
+        "Mesajını aldım 👍 LoxrieResmi en kısa sürede dönüş yapacak.";
+
+        body.appendChild(reply);
+
+        body.scrollTop=
+            body.scrollHeight;
+
+    },700);
+}
+
+
+function toggleMenu(){
+
+    const menu=
+        document.getElementById("mobileMenu");
+
+    menu.style.display=
+        menu.style.display==="block"
+        ? "none"
+        : "block";
+}
+
+</script>
+
+</body>
+</html>
