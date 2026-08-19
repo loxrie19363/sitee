@@ -18,8 +18,6 @@ body{
     color:#18191d;
 }
 
-/* NAVBAR */
-
 .navbar{
     height:68px;
     background:#fff;
@@ -69,8 +67,6 @@ body{
     cursor:pointer;
 }
 
-/* SCREENS */
-
 .screen{
     display:none;
 }
@@ -78,8 +74,6 @@ body{
 .screen.active{
     display:block;
 }
-
-/* HERO */
 
 .hero{
     background:#101116;
@@ -106,8 +100,6 @@ body{
     margin-bottom:25px;
 }
 
-/* CONTENT */
-
 .container{
     max-width:1100px;
     margin:auto;
@@ -118,12 +110,9 @@ body{
     margin-bottom:25px;
 }
 
-/* CARDS */
-
 .cards{
     display:grid;
-    grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:18px;
 }
 
@@ -171,8 +160,6 @@ body{
     filter:brightness(1.08);
 }
 
-/* ACCOUNT */
-
 .form-box{
     max-width:500px;
     margin:50px auto;
@@ -204,7 +191,10 @@ input:focus{
     margin-bottom:15px;
 }
 
-/* ORDER */
+.success{
+    color:#26a65b;
+    margin-bottom:15px;
+}
 
 .summary{
     max-width:600px;
@@ -220,6 +210,7 @@ input:focus{
     justify-content:space-between;
     padding:14px 0;
     border-bottom:1px solid #eee;
+    gap:15px;
 }
 
 .row:last-child{
@@ -231,8 +222,6 @@ input:focus{
     font-size:22px;
     font-weight:bold;
 }
-
-/* CHAT */
 
 .chat-box{
     max-width:600px;
@@ -306,8 +295,6 @@ input:focus{
     width:60px;
 }
 
-/* MOBILE MENU */
-
 .mobile-menu{
     display:none;
     position:fixed;
@@ -362,88 +349,50 @@ input:focus{
 
 <body>
 
-<!-- NAVBAR -->
-
 <header class="navbar">
 
-<div class="logo">
-VBOOST
-</div>
+<div class="logo">VBOOST</div>
 
 <nav class="nav-links">
-
 <a onclick="goHome()">Ana Sayfa</a>
-
 <a onclick="goPackages()">Paketler</a>
-
 <a onclick="showOrders()">Siparişlerim</a>
-
 <a onclick="openSupport()">Destek</a>
-
 </nav>
 
-<div class="profile"
-     id="profile"
-     onclick="showAccount()">
+<div class="profile" id="profile" onclick="showAccount()">
 Giriş Yap
 </div>
 
-<div class="menu"
-     onclick="toggleMenu()">
-☰
-</div>
+<div class="menu" onclick="toggleMenu()">☰</div>
 
 </header>
 
+<div class="mobile-menu" id="mobileMenu">
 
-<!-- MOBILE MENU -->
-
-<div class="mobile-menu"
-     id="mobileMenu">
-
-<a onclick="goHome();toggleMenu()">
-Ana Sayfa
-</a>
-
-<a onclick="goPackages();toggleMenu()">
-Paketler
-</a>
-
-<a onclick="showOrders();toggleMenu()">
-Siparişlerim
-</a>
-
-<a onclick="openSupport();toggleMenu()">
-Destek
-</a>
-
-<a onclick="showAccount();toggleMenu()">
-Hesabım
-</a>
+<a onclick="goHome();toggleMenu()">Ana Sayfa</a>
+<a onclick="goPackages();toggleMenu()">Paketler</a>
+<a onclick="showOrders();toggleMenu()">Siparişlerim</a>
+<a onclick="openSupport();toggleMenu()">Destek</a>
+<a onclick="showAccount();toggleMenu()">Hesabım</a>
 
 </div>
 
-
-<!-- HOME -->
-
-<section id="home"
-         class="screen active">
+<section id="home" class="screen active">
 
 <div class="hero">
 
 <div class="hero-inner">
 
 <h1>
-RANKINI
-<span>YÜKSELT</span>
+RANKINI <span>YÜKSELT</span>
 </h1>
 
 <p>
 VBOOST — Valorant hizmet ve iletişim platformu
 </p>
 
-<button class="btn"
-        onclick="goPackages()">
+<button class="btn" onclick="goPackages()">
 PAKETLERE GÖZ AT
 </button>
 
@@ -460,111 +409,65 @@ Popüler Paketler
 <div class="cards">
 
 <div class="card">
-
-<div class="rank">
-Bronz → Gümüş
-</div>
-
+<div class="rank">Bronz → Gümüş</div>
 <p>Rank paketi</p>
-
-<div class="price">
-₺149
-</div>
-
-<button class="btn"
-onclick="selectPackage('Bronz → Gümüş',149)">
+<div class="price">₺149</div>
+<button class="btn" onclick="selectPackage('Bronz → Gümüş',149)">
 Satın Al
 </button>
-
 </div>
-
 
 <div class="card">
-
-<div class="rank">
-Gümüş → Altın
-</div>
-
+<div class="rank">Gümüş → Altın</div>
 <p>Rank paketi</p>
-
-<div class="price">
-₺249
-</div>
-
-<button class="btn"
-onclick="selectPackage('Gümüş → Altın',249)">
+<div class="price">₺249</div>
+<button class="btn" onclick="selectPackage('Gümüş → Altın',249)">
 Satın Al
 </button>
-
 </div>
-
 
 <div class="card">
-
-<div class="rank">
-Altın → Platin
-</div>
-
+<div class="rank">Altın → Platin</div>
 <p>Rank paketi</p>
-
-<div class="price">
-₺349
-</div>
-
-<button class="btn"
-onclick="selectPackage('Altın → Platin',349)">
+<div class="price">₺349</div>
+<button class="btn" onclick="selectPackage('Altın → Platin',349)">
 Satın Al
 </button>
-
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- ACCOUNT -->
-
-<section id="account"
-         class="screen">
+<section id="account" class="screen">
 
 <div class="form-box">
 
-<h2>
-Hesap Oluştur
-</h2>
+<h2>Hesabım</h2>
 
-<div class="error"
-     id="error">
-</div>
+<div class="error" id="error"></div>
+<div class="success" id="success"></div>
 
-<input id="email"
-       type="email"
-       placeholder="E-posta">
+<input id="email" type="email" placeholder="E-posta">
 
-<input id="username"
-       placeholder="Kullanıcı adı">
+<input id="username" placeholder="Kullanıcı adı">
 
-<input id="password"
-       type="password"
-       placeholder="Site şifresi">
+<input id="password" type="password" placeholder="Site şifresi">
 
-<button class="btn"
-        onclick="createAccount()">
+<button class="btn" onclick="createAccount()">
 HESAP OLUŞTUR
 </button>
 
-</div>
+<br><br>
 
+<button class="btn" onclick="logout()">
+ÇIKIŞ YAP
+</button>
+
+</div>
 </section>
 
-
-<!-- PACKAGES -->
-
-<section id="packages"
-         class="screen">
+<section id="packages" class="screen">
 
 <div class="container">
 
@@ -578,8 +481,7 @@ Tüm Paketler
 <div class="rank">Bronz → Gümüş</div>
 <p>Başlangıç</p>
 <div class="price">₺149</div>
-<button class="btn"
-onclick="selectPackage('Bronz → Gümüş',149)">
+<button class="btn" onclick="selectPackage('Bronz → Gümüş',149)">
 Satın Al
 </button>
 </div>
@@ -588,8 +490,7 @@ Satın Al
 <div class="rank">Gümüş → Altın</div>
 <p>Standart</p>
 <div class="price">₺249</div>
-<button class="btn"
-onclick="selectPackage('Gümüş → Altın',249)">
+<button class="btn" onclick="selectPackage('Gümüş → Altın',249)">
 Satın Al
 </button>
 </div>
@@ -598,8 +499,7 @@ Satın Al
 <div class="rank">Altın → Platin</div>
 <p>Premium</p>
 <div class="price">₺349</div>
-<button class="btn"
-onclick="selectPackage('Altın → Platin',349)">
+<button class="btn" onclick="selectPackage('Altın → Platin',349)">
 Satın Al
 </button>
 </div>
@@ -608,23 +508,16 @@ Satın Al
 <div class="rank">Platin → Elmas</div>
 <p>Premium+</p>
 <div class="price">₺499</div>
-<button class="btn"
-onclick="selectPackage('Platin → Elmas',499)">
+<button class="btn" onclick="selectPackage('Platin → Elmas',499)">
 Satın Al
 </button>
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- ORDER -->
-
-<section id="order"
-         class="screen">
+<section id="order" class="screen">
 
 <div class="container">
 
@@ -646,28 +539,20 @@ Sipariş Özeti
 
 <div class="row">
 <span>Fiyat</span>
-<b class="total"
-   id="sumPrice">₺0</b>
+<b class="total" id="sumPrice">₺0</b>
 </div>
 
 <br>
 
-<button class="btn"
-        onclick="openSupport()">
-SATIN AL / DESTEKLE İLETİŞİME GEÇ
+<button class="btn" onclick="openSupport()">
+DESTEK İLE İLETİŞİME GEÇ
 </button>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- ORDERS -->
-
-<section id="orders"
-         class="screen">
+<section id="orders" class="screen">
 
 <div class="container">
 
@@ -675,30 +560,20 @@ SATIN AL / DESTEKLE İLETİŞİME GEÇ
 Siparişlerim
 </h2>
 
-<div class="summary"
-     id="orderList">
-
+<div class="summary" id="orderList">
 Henüz sipariş bulunmuyor.
-
 </div>
 
 </div>
-
 </section>
 
-
-<!-- SUPPORT -->
-
-<section id="support"
-         class="screen">
+<section id="support" class="screen">
 
 <div class="chat-box">
 
 <div class="chat-head">
 
-<div class="avatar">
-L
-</div>
+<div class="avatar">L</div>
 
 <div>
 <b>LoxrieResmi</b>
@@ -711,18 +586,12 @@ L
 
 </div>
 
-<div class="chat-body"
-     id="chatBody">
+<div class="chat-body" id="chatBody">
 
 <div class="message">
-
 Merhaba 👋<br><br>
-
-Ben <b>LoxrieResmi</b>.
-<br><br>
-
+Ben <b>LoxrieResmi</b>.<br><br>
 Nasıl yardımcı olabilirim?
-
 </div>
 
 </div>
@@ -733,31 +602,57 @@ Nasıl yardımcı olabilirim?
 placeholder="Mesaj yaz..."
 onkeydown="if(event.key==='Enter')sendMessage()">
 
-<button class="btn"
-onclick="sendMessage()">
-➤
-</button>
+<button class="btn" onclick="sendMessage()">➤</button>
 
 </div>
 
 </div>
-
 </section>
-
 
 <script>
 
-let user={
+let user = JSON.parse(
+    localStorage.getItem("vboost_user") || "null"
+) || {
     username:"",
     email:""
 };
 
-let selected={
+let orders = JSON.parse(
+    localStorage.getItem("vboost_orders") || "[]"
+);
+
+let selected = {
     name:"",
     price:0
 };
 
-let orders=[];
+
+function saveData(){
+
+    localStorage.setItem(
+        "vboost_user",
+        JSON.stringify(user)
+    );
+
+    localStorage.setItem(
+        "vboost_orders",
+        JSON.stringify(orders)
+    );
+}
+
+
+function updateProfile(){
+
+    const profile =
+        document.getElementById("profile");
+
+    if(user.username){
+        profile.innerText = user.username;
+    }else{
+        profile.innerText = "Giriş Yap";
+    }
+}
 
 
 function hideAll(){
@@ -789,9 +684,7 @@ function goHome(){
 function goPackages(){
 
     if(!user.username){
-
         showAccount();
-
         return;
     }
 
@@ -802,31 +695,48 @@ function goPackages(){
 function showAccount(){
 
     show("account");
+
+    document.getElementById("error").innerText="";
+    document.getElementById("success").innerText="";
+
+    if(user.username){
+
+        document.getElementById("email").value =
+            user.email;
+
+        document.getElementById("username").value =
+            user.username;
+
+    }
 }
 
 
 function createAccount(){
 
-    const email=
-        document.getElementById("email")
-        .value.trim();
+    const email =
+        document.getElementById("email").value.trim();
 
-    const username=
-        document.getElementById("username")
-        .value.trim();
+    const username =
+        document.getElementById("username").value.trim();
 
-    const password=
-        document.getElementById("password")
-        .value;
+    const password =
+        document.getElementById("password").value;
 
-    const error=
+    const error =
         document.getElementById("error");
 
+    const success =
+        document.getElementById("success");
 
-    if(!email||!username||!password){
 
-        error.innerText=
-        "Tüm alanları doldur.";
+    error.innerText="";
+    success.innerText="";
+
+
+    if(!email || !username || !password){
+
+        error.innerText =
+            "Tüm alanları doldur.";
 
         return;
     }
@@ -834,31 +744,55 @@ function createAccount(){
 
     if(!email.includes("@")){
 
-        error.innerText=
-        "Geçerli bir e-posta gir.";
+        error.innerText =
+            "Geçerli bir e-posta gir.";
 
         return;
     }
 
 
-    if(password.length<6){
+    if(password.length < 6){
 
-        error.innerText=
-        "Şifre en az 6 karakter olmalı.";
+        error.innerText =
+            "Şifre en az 6 karakter olmalı.";
 
         return;
     }
 
 
-    user.email=email;
-    user.username=username;
+    user.email = email;
+    user.username = username;
 
-    document.getElementById("profile")
-    .innerText=username;
+    saveData();
 
-    error.innerText="";
+    updateProfile();
 
-    goPackages();
+    success.innerText =
+        "Hesap başarıyla oluşturuldu.";
+
+    setTimeout(()=>{
+        goPackages();
+    },500);
+}
+
+
+function logout(){
+
+    user = {
+        username:"",
+        email:""
+    };
+
+    selected = {
+        name:"",
+        price:0
+    };
+
+    localStorage.removeItem("vboost_user");
+
+    updateProfile();
+
+    goHome();
 }
 
 
@@ -872,25 +806,28 @@ function selectPackage(name,price){
     }
 
 
-    selected.name=name;
-    selected.price=price;
+    selected.name = name;
+    selected.price = price;
 
 
     document.getElementById("sumUser")
-    .innerText=user.username;
+        .innerText = user.username;
 
     document.getElementById("sumPackage")
-    .innerText=name;
+        .innerText = name;
 
     document.getElementById("sumPrice")
-    .innerText="₺"+price;
+        .innerText = "₺" + price;
 
 
     orders.push({
         name:name,
-        price:price
+        price:price,
+        date:new Date().toLocaleString("tr-TR")
     });
 
+
+    saveData();
 
     show("order");
 }
@@ -906,34 +843,35 @@ function showOrders(){
     }
 
 
-    const list=
+    const list =
         document.getElementById("orderList");
 
 
-    if(orders.length===0){
+    if(orders.length === 0){
 
-        list.innerText=
-        "Henüz sipariş bulunmuyor.";
+        list.innerText =
+            "Henüz sipariş bulunmuyor.";
 
     }else{
 
-        list.innerHTML=
-        orders.map((o,i)=>`
+        list.innerHTML =
+            orders.map((o,i)=>`
 
-        <div class="row">
+            <div class="row">
 
-        <span>
-        Sipariş #${i+1}<br>
-        ${o.name}
-        </span>
+                <span>
+                    Sipariş #${i+1}<br>
+                    ${o.name}<br>
+                    <small>${o.date || ""}</small>
+                </span>
 
-        <b class="total">
-        ₺${o.price}
-        </b>
+                <b class="total">
+                    ₺${o.price}
+                </b>
 
-        </div>
+            </div>
 
-        `).join("");
+            `).join("");
     }
 
 
@@ -956,48 +894,48 @@ function openSupport(){
 
 function sendMessage(){
 
-    const input=
+    const input =
         document.getElementById("chatInput");
 
-    const text=
+    const text =
         input.value.trim();
 
 
-    if(!text)return;
+    if(!text) return;
 
 
-    const body=
+    const body =
         document.getElementById("chatBody");
 
 
-    const msg=
+    const msg =
         document.createElement("div");
 
-    msg.className="message me";
+    msg.className = "message me";
 
-    msg.innerText=text;
+    msg.innerText = text;
 
     body.appendChild(msg);
 
-    input.value="";
+    input.value = "";
 
-    body.scrollTop=
+    body.scrollTop =
         body.scrollHeight;
 
 
     setTimeout(()=>{
 
-        const reply=
+        const reply =
             document.createElement("div");
 
-        reply.className="message";
+        reply.className = "message";
 
-        reply.innerText=
-        "Mesajını aldım 👍 LoxrieResmi en kısa sürede dönüş yapacak.";
+        reply.innerText =
+            "Mesajını aldım 👍 LoxrieResmi en kısa sürede dönüş yapacak.";
 
         body.appendChild(reply);
 
-        body.scrollTop=
+        body.scrollTop =
             body.scrollHeight;
 
     },700);
@@ -1006,14 +944,17 @@ function sendMessage(){
 
 function toggleMenu(){
 
-    const menu=
+    const menu =
         document.getElementById("mobileMenu");
 
-    menu.style.display=
-        menu.style.display==="block"
+    menu.style.display =
+        menu.style.display === "block"
         ? "none"
         : "block";
 }
+
+
+updateProfile();
 
 </script>
 
